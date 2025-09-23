@@ -1,30 +1,14 @@
-import BodyText from "./components/typography/BodyText";
-import DisplayText from "./components/typography/DisplayText";
-import H1Text from "./components/typography/H1Text";
-import SubtitleText from "./components/typography/SubtitleText";
-import TitleText from "./components/typography/TitleText";
+import Logo from "./components/Logo";
 
 export default function Home() {
   return (
-    <main>
-      <p>Typography</p>
-
-      <DisplayText text="display component" />
-
-      <H1Text text="h1 component" />
-
-      <TitleText text="title component" />
-
-      <SubtitleText text="subtitle component" />
-
-      <BodyText text="body component" />
-
-      <p>colors</p>
-      <div className="w-15 h-15 border bg-white">white</div>
-      <div className="w-15 h-15 bg-stroke border-stroke">stroke</div>
-      <div className="w-15 h-15 border bg-off-white">off-white</div>
-      <div className="w-15 h-15 bg-black text-white">black</div>
-      <div className="w-15 h-15 bg-green">green</div>
+    <main className="grid grid-cols-4 gap-4 md:grid md:grid-cols-12 md:grid-rows-6">
+      <div className="flex flex-col gap-6">
+        <Logo fill="#000" width="200" height="24" />
+        <div className="border grid grid-cols-subgrid">filter</div>
+        <div className="border grid grid-cols-subgrid">card</div>
+        <div className="border grid grid-cols-subgrid">resturants</div>
+      </div>
     </main>
   );
 }
