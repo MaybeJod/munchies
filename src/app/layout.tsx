@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sfPro.variable} antialiased`}>{children}</body>
+      <body className={`${sfPro.variable} antialiased bg-white px-6 pt-10`}>
+        {children}
+      </body>
     </html>
   );
 }
