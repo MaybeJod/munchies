@@ -23,3 +23,7 @@ For the typography, the display text will be h1 and the h1 will be h2, this is b
 
 - mobile 375px with 4 grids
 - web 1440px with 16 grids
+
+## svg logo
+
+turn the logo into a react component using SVGR Playground, that way i can change the svgs color, width and height
