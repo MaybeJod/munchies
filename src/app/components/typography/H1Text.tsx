@@ -1,3 +1,9 @@
-export default function H1Text({ text }: { text: string }) {
-  return <h2 className="text-h1">{text}</h2>;
+import { ReactNode } from "react";
+
+interface H1TextProps {
+  children?: ReactNode;
+}
+
+export default function H1Text({ children }: H1TextProps) {
+  return <h2 className="text-h1">{children}</h2>;
 }
