@@ -1,17 +1,4 @@
 @import "tailwindcss";
-@layer base {
-  .SfPro {
-    /* typography whats the same */
-    /* weight = regular */
-    /* line height = 125% or (0.9375rem) */
-    /* letter spacing = -0.03125rem */
-    font-family: var(--font-SfPro);
-    line-height: 0.9375rem;
-    letter-spacing: -0.03125rem;
-
-    @apply tracking-wide;
-  }
-}
 
 :root {
   --background: #fafafa;
@@ -27,8 +14,6 @@
   --color-off-white: #fafafa;
   --color-black: #000000;
   --color-green: #00703a;
-
-  --font-SfPro: var(--font-SfPro);
 
   --text-display: 2.5rem;
   --text-h1: 1.5rem;
@@ -47,5 +32,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-SfPro);
+  line-height: 0.9375rem;
+  letter-spacing: -0.03125rem;
+  font-family: var(--font-SfPro), Arial, Helvetica, sans-serif;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  /* px-6 pt-10 */
 }
