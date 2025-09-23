@@ -18,6 +18,9 @@ For the typography, the display text will be h1 and the h1 will be h2, this is b
 - gap from logo to main content web: 3rem
 - gap from logo to main content app: 1.5rem
 - padding main content: 1.5rem
+- grid gutter web: 1.25rem
+- gap between items in components app: 0.625rem
+- gap between items in components web: 1.25rem
 
 ### grids
 
