@@ -1,8 +1,19 @@
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start"></main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
-    </div>
+    <main>
+      <p>Typography</p>
+      <h1 className="text-display">display</h1>
+      <h2 className="text-h1">h1</h2>
+      <h3 className="text-title">title</h3>
+      <h4 className="text-subtitle">subtitle</h4>
+      <p className="text-body">body</p>
+
+      <p>colors</p>
+      <div className="w-15 h-15 border bg-white">white</div>
+      <div className="w-15 h-15 bg-stroke border-stroke">stroke</div>
+      <div className="w-15 h-15 border bg-off-white">off-white</div>
+      <div className="w-15 h-15 bg-black text-white">black</div>
+      <div className="w-15 h-15 bg-green">green</div>
+    </main>
   );
 }
