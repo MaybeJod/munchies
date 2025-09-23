@@ -1,19 +1,13 @@
-import Logo from "./components/logo/Logo.tsx";
+import Logo from "./components/Logo";
 
 export default function Home() {
   return (
-    <main className="grid grid-cols-4 gap-4">
+    <main className="grid grid-cols-4 gap-4 md:grid md:grid-cols-12 md:grid-rows-6">
       <div className="flex flex-col gap-6">
-        <Logo fill="#000" width={200} height={24} />
-        <div className="w-80 border col-span-1 grid grid-cols-subgrid">
-          filter
-        </div>
-        <div className="w-80 border col-span-1 grid grid-cols-subgrid">
-          card
-        </div>
-        <div className="w-80 border col-span-1 grid grid-cols-subgrid">
-          resturants
-        </div>
+        <Logo fill="#000" width="200" height="24" />
+        <div className="border grid grid-cols-subgrid">filter</div>
+        <div className="border grid grid-cols-subgrid">card</div>
+        <div className="border grid grid-cols-subgrid">resturants</div>
       </div>
     </main>
   );

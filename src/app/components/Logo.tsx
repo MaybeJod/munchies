@@ -1,12 +1,18 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const LogoLight = (
-  props: SVGProps<SVGSVGElement>,
-  width: string,
-  height: string,
-  fill: string
-) => (
+interface LogoProps extends SVGProps<SVGSVGElement> {
+  width?: string;
+  height?: string;
+  fill?: string;
+}
+
+const LogoLight = ({
+  width = "200",
+  height = "24",
+  fill = "#000",
+  ...props
+}: LogoProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     // width={168}
