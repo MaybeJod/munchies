@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "sync-branch": "CURRENT_BRANCH=$(git branch --show-current) && git checkout main && git pull && git checkout $CURRENT_BRANCH && git merge main && git push",
+    "delete-branch": "CURRENT_BRANCH=$(git branch --show-current) && git checkout main && git pull && git branch -d $CURRENT_BRANCH && git branch",
     "start": "next start",
     "lint": "eslint"
   },
