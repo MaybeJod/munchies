@@ -1,11 +1,20 @@
+import { Geist } from "next/font/google";
+
 import type { Metadata } from "next";
+
 import CustomFont from "next/font/local";
+
 import "./globals.css";
 
 const sfPro = CustomFont({
   src: "../../public/fonts/SF-Pro.ttf",
 
   variable: "--font-SfPro",
+});
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-Geist",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sfPro.variable} antialiased bg-white px-6 pt-10`}>
+      <body className={`${sfPro.variable} ${geist.variable} antialiased`}>
         {children}
       </body>
     </html>
