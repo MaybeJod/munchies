@@ -1,12 +1,23 @@
+import BodyText from "./components/typography/BodyText";
+import DisplayText from "./components/typography/DisplayText";
+import H1Text from "./components/typography/H1Text";
+import SubtitleText from "./components/typography/SubtitleText";
+import TitleText from "./components/typography/TitleText";
+
 export default function Home() {
   return (
     <main>
       <p>Typography</p>
-      <h1 className="text-display">display</h1>
-      <h2 className="text-h1">h1</h2>
-      <h3 className="text-title">title</h3>
-      <h4 className="text-subtitle">subtitle</h4>
-      <p className="text-body">body</p>
+
+      <DisplayText text="display component" />
+
+      <H1Text text="h1 component" />
+
+      <TitleText text="title component" />
+
+      <SubtitleText text="subtitle component" />
+
+      <BodyText text="body component" />
 
       <p>colors</p>
       <div className="w-15 h-15 border bg-white">white</div>
