@@ -30,3 +30,7 @@ For the typography, the display text will be h1 and the h1 will be h2, this is b
 ## svg logo
 
 turn the logo into a react component using SVGR Playground, that way i can change the svgs color, width and height
+
+## card ux for resturants
+
+no price chip to show how expensive a restuarant is hehehe.
