@@ -7,7 +7,7 @@ interface LogoProps extends SVGProps<SVGSVGElement> {
   fill?: string;
 }
 
-const LogoLight = ({
+const Logo = ({
   width = "200",
   height = "24",
   fill = "#000",
@@ -34,4 +34,4 @@ const LogoLight = ({
     />
   </svg>
 );
-export default LogoLight;
+export default Logo;
