@@ -9,7 +9,7 @@ interface CardPropts {
 
 export default function categoryCard({ title, img }: CardPropts) {
   return (
-    <div className="min-w-40 min-h-20 border-[0.6px] border-stroke rounded-[8px] pl-3 inline-flex justify-between shadow-[-4px_2px_10px_0px_rgba(0,_0,_0,_0.1), -16px_9px_18px_0px_rgba(0,_0,_0,_0.1)]/1">
+    <div className="min-w-40 min-h-20 border-[0.6px] border-stroke rounded-[8px] pl-3 inline-flex justify-between shadow-[-4px_2px_10px_0px_rgba(0,_0,_0,_0.1), -16px_9px_18px_0px_rgba(0,_0,_0,_0.1)]/1 snap-center">
       <TitleText className="pt-4">{title}</TitleText>
       {/* <div>{children}</div> */}
 
