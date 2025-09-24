@@ -5,5 +5,9 @@ interface SubtitleTextProps {
 }
 
 export default function SubtitleText({ children }: SubtitleTextProps) {
-  return <h4 className="text-subtitle">{children}</h4>;
+  return (
+    <h4 className="text-subtitle uppercase opacity-40 font-semibold">
+      {children}
+    </h4>
+  );
 }
