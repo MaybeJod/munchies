@@ -7,7 +7,7 @@ interface CardPropts {
   img?: string;
 }
 
-export default function CategorieCard({ title, img }: CardPropts) {
+export default function categoryCard({ title, img }: CardPropts) {
   return (
     <div className="min-w-40 min-h-20 border-[0.6px] border-stroke rounded-[8px] pl-3 inline-flex justify-between shadow-[-4px_2px_10px_0px_rgba(0,_0,_0,_0.1), -16px_9px_18px_0px_rgba(0,_0,_0,_0.1)]/1">
       <TitleText className="pt-4">{title}</TitleText>
