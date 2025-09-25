@@ -7,6 +7,11 @@ import RestaurantCard from "./components/RestaurantCard";
 import H1Text from "./components/typography/H1Text";
 import useMediaQuery from "./hooks/useMediaQuery";
 
+import { MergedRestaurantData, GetAllFilters } from "./api/restaurants";
+
+const filterData = await GetAllFilters();
+const restaurants = await MergedRestaurantData();
+
 const MobileLayout = () => {
   return (
     <main className="flex flex-col gap-6">
@@ -14,38 +19,41 @@ const MobileLayout = () => {
       <Filter />
 
       <div className="-mx-6 px-6 md:px-0 flex gap-2.5 scroll-pl-6 snap-x snap-mandatory overflow-x-scroll">
-        <CategoryCard title="Hamburger" img="/images/burger.png" />
-        <CategoryCard title="Pizza" img="/images/pizza.png" />
-        <CategoryCard title="Taco" img="/images/taco.png" />
-        <CategoryCard title="Coffee" img="/images/coffee.png" />
-        <CategoryCard title="Fries" img="/images/fries.png" />
-        <CategoryCard title="Mexican" img="/images/buritto.png" />
-        <CategoryCard title="Breakfast" img="/images/breakfast.png" />
+        {filterData.map(
+          (filter: {
+            id: string;
+            name: string | undefined;
+            image_url: string | undefined;
+          }) => (
+            <CategoryCard
+              key={filter.id}
+              title={filter.name}
+              img={filter.image_url}
+            />
+          )
+        )}
       </div>
 
       <div className="flex flex-col gap-5">
         <H1Text>Restuarant&apos;s</H1Text>
         <div className="flex flex-wrap gap-2.5 ">
-          <RestaurantCard
-            img="/images/fries.png"
-            isOpen={true}
-            DeliveryTime="1-40 min"
-          />
-          <RestaurantCard
-            img="/images/coffee.png"
-            isOpen={false}
-            DeliveryTime="1-40 min"
-          />
-          <RestaurantCard
-            img="/images/coffee.png"
-            isOpen={false}
-            DeliveryTime="1-40 min"
-          />
-          <RestaurantCard
-            img="/images/coffee.png"
-            isOpen={true}
-            DeliveryTime="1-40 min"
-          />
+          {restaurants.map(
+            (restaurant: {
+              id: string;
+              image_url: string;
+              delivery_time_minutes: number;
+              name: string;
+              isOpen: boolean;
+            }) => (
+              <RestaurantCard
+                key={restaurant.id}
+                img={restaurant.image_url}
+                isOpen={restaurant.isOpen}
+                DeliveryTime={`${restaurant.delivery_time_minutes} min`}
+                name={restaurant.name}
+              />
+            )
+          )}
         </div>
       </div>
     </main>
@@ -64,69 +72,42 @@ const WebLayout = () => {
         <div className="flex flex-col gap-10 min-w-0 flex-1">
           {/* category cards */}
           <div className="flex gap-2.5 scroll-pl-6 snap-x snap-mandatory overflow-x-scroll -mr-10 pr-10">
-            <CategoryCard title="Hamburger" img="/images/burger.png" />
-            <CategoryCard title="Pizza" img="/images/pizza.png" />
-            <CategoryCard title="Taco" img="/images/taco.png" />
-            <CategoryCard title="Coffee" img="/images/coffee.png" />
-            <CategoryCard title="Fries" img="/images/fries.png" />
-            <CategoryCard title="Mexican" img="/images/buritto.png" />
-            <CategoryCard title="Breakfast" img="/images/breakfast.png" />
+            {filterData.map(
+              (filter: {
+                id: string;
+                name: string | undefined;
+                image_url: string | undefined;
+              }) => (
+                <CategoryCard
+                  key={filter.id}
+                  title={filter.name}
+                  img={filter.image_url}
+                />
+              )
+            )}
           </div>
 
           {/* restaurants */}
           <div className="flex flex-col gap-8">
-            <H1Text>Restuarant&apos;s</H1Text>
+            <H1Text>Restaurant&apos;s</H1Text>
             <div className="max-w-full flex flex-wrap gap-4 ">
-              <RestaurantCard
-                img="/images/fries.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={false}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={false}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
-              <RestaurantCard
-                img="/images/coffee.png"
-                isOpen={true}
-                DeliveryTime="1-40 min"
-              />
+              {restaurants.map(
+                (restaurant: {
+                  id: string;
+                  image_url: string;
+                  delivery_time_minutes: number;
+                  name: string;
+                  isOpen: boolean;
+                }) => (
+                  <RestaurantCard
+                    key={restaurant.id}
+                    img={restaurant.image_url}
+                    isOpen={restaurant.isOpen}
+                    DeliveryTime={`${restaurant.delivery_time_minutes} min`}
+                    name={restaurant.name}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
@@ -139,4 +120,5 @@ export default function Home() {
   const isDesktop = useMediaQuery("(min-width: 787px)");
 
   return isDesktop ? <WebLayout /> : <MobileLayout />;
+  // return <WebLayout />;
 }
