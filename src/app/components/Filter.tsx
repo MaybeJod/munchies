@@ -45,7 +45,7 @@ const WebFilter = () => {
 
       {/* delivery time */}
       <div className="flex flex-col gap-4">
-        <SubtitleText>food category</SubtitleText>
+        <SubtitleText>delivery time</SubtitleText>
         <div className="flex gap-2 flex-wrap">
           <FilterButton buttonText="0-10 min" />
           <FilterButton buttonText="10-30 min" />
