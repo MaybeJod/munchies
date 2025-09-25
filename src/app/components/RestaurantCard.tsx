@@ -8,30 +8,24 @@ interface RestaurantCardProp {
   isOpen: boolean;
   DeliveryTime?: string;
   img: string;
+  name: string;
 }
 
 export default function RestaurantCard({
   isOpen,
   DeliveryTime,
   img,
+  name,
 }: RestaurantCardProp) {
-  if (isOpen === true) {
-    console.log(isOpen);
-  }
-
-  if (DeliveryTime === "string") {
-    console.log(DeliveryTime);
-  }
-
   return (
     // open
-    <div className="w-[327px] h-[202px] border-[0.6px] border-stroke rounded-[8px] bg-white p-4 flex flex-col justify-between overflow-hidden shadow-[-4px_2px_10px_0px_rgba(0,_0,_0,_0.1), -16px_9px_18px_0px_rgba(0,_0,_0,_0.1)]/1">
+    <div className="w-[327px] h-[202px] border-[0.6px] border-stroke rounded-[8px] bg-white p-4 flex flex-col justify-center overflow-hidden shadow-[-4px_2px_10px_0px_rgba(0,_0,_0,_0.1), -16px_9px_18px_0px_rgba(0,_0,_0,_0.1)]/1">
       {isOpen === true ? (
         <>
           {/* header */}
           <div className="flex justify-between">
             <div className="flex content-center gap-2">
-              <Chip dot={true} isOpen={true} text="Open" />
+              <Chip dot={true} isOpen={isOpen} text="Open" />
               <Chip dot={false} isOpen={true} text={`${DeliveryTime}`} />
             </div>
             <Image
@@ -43,8 +37,8 @@ export default function RestaurantCard({
             />
           </div>
           {/* footer */}
-          <div className="flex justify-between align-middle">
-            <H1Text>Cortado Bar</H1Text>
+          <div className="flex justify-between align-middle items-center">
+            <H1Text>{name}</H1Text>
             {/* cta */}
             <button className="bg-green w-8 h-8 grid content-center justify-items-center rounded-[88px]">
               <Arrow fill="#fff" />
@@ -56,7 +50,7 @@ export default function RestaurantCard({
           {/* header */}
           <div className="flex justify-between">
             <div className="flex content-center gap-2">
-              <Chip dot={true} isOpen={false} text="Closed" />
+              <Chip dot={true} isOpen={isOpen} text="Closed" />
             </div>
             <Image
               src={`${img}`}
@@ -69,7 +63,7 @@ export default function RestaurantCard({
 
           {/* footer */}
           <div className="flex justify-between align-middle">
-            <H1Text className="opacity-20">Cortado Bar</H1Text>
+            <H1Text className="opacity-20">{name}</H1Text>
             {/* cta */}
             <button className="bg-green w-8 h-8 grid content-center justify-items-center rounded-[88px] opacity-20">
               <Arrow fill="#fff" />
@@ -77,7 +71,7 @@ export default function RestaurantCard({
           </div>
           {/* closed text */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-off-white w-fit py-2 pl-2.5 pr-3 flex justify-center border-[0.6px] border-stroke rounded-[4px]">
+            <div className="bg-off-white w-fit py-2 px-3 flex justify-center border-[0.6px] border-stroke rounded-[4px]">
               <BodyText>Opens tomorrow at 12 pm</BodyText>
             </div>
           </div>
