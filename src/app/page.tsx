@@ -7,16 +7,43 @@ import RestaurantCard from "./components/RestaurantCard";
 import H1Text from "./components/typography/H1Text";
 import useMediaQuery from "./hooks/useMediaQuery";
 
-import { MergedRestaurantData, GetAllFilters } from "./api/restaurants";
+import {
+  MergedRestaurantData,
+  GetAllFilters,
+  // FilterData,
+} from "./api/restaurants";
 
 const filterData = await GetAllFilters();
 const restaurants = await MergedRestaurantData();
+
+const categoryText = filterData.map((categoryName: { name: string }) => {
+  return categoryName.name;
+});
+
+function deliveryTimeText() {
+  const ranges = [
+    { text: "0-10 min", min: 0, max: 10 },
+    { text: "10-30 min", min: 11, max: 30 },
+    { text: "30-60 min", min: 31, max: 60 },
+    { text: "1 hour+", min: 61, max: Infinity },
+  ];
+
+  // Return all ranges regardless of availability
+  const allRangeTexts = ranges.map((range) => range.text);
+
+  return allRangeTexts;
+}
+
+let priceText = restaurants.map((priceRangeText: { priceRange: string }) => {
+  return priceRangeText.priceRange;
+});
+priceText = [...new Set(priceText)];
 
 const MobileLayout = () => {
   return (
     <main className="flex flex-col gap-6">
       <Logo fill="#000" width="200" height="24" />
-      <Filter />
+      <Filter deliveryTimeText={deliveryTimeText()} />
 
       <div className="-mx-6 px-6 md:px-0 flex gap-2.5 scroll-pl-6 snap-x snap-mandatory overflow-x-scroll">
         {filterData.map(
@@ -66,7 +93,11 @@ const WebLayout = () => {
       <Logo fill="#000" width="200" height="24" className="mb-12" />
       <div className="flex gap-5 w-full">
         <aside>
-          <Filter />
+          <Filter
+            foodCategoryText={categoryText}
+            deliveryTimeText={deliveryTimeText()}
+            priceRangeText={priceText}
+          />
         </aside>
         {/* main section */}
         <div className="flex flex-col gap-10 min-w-0 flex-1">

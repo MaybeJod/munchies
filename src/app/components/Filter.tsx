@@ -5,6 +5,12 @@ import H1Text from "./typography/H1Text";
 import SubtitleText from "./typography/SubtitleText";
 import useMediaQuery from "../hooks/useMediaQuery";
 
+interface FilterProps {
+  foodCategoryText?: string[];
+  deliveryTimeText?: string[];
+  priceRangeText?: string[];
+}
+
 const FilterButton = ({ buttonText }: { buttonText: string }) => {
   return (
     <button className="w-fit border-[0.6px] border-stroke rounded-[8px] py-2 px-3">
@@ -13,22 +19,25 @@ const FilterButton = ({ buttonText }: { buttonText: string }) => {
   );
 };
 
-const MobileFilter = () => {
+const MobileFilter = ({ deliveryTimeText }: FilterProps) => {
   return (
     // food category
     <div className="flex flex-col gap-2.5">
       <SubtitleText>Delivery time</SubtitleText>
       <div className="flex gap-2.5">
-        <FilterButton buttonText="0-10 min" />
-        <FilterButton buttonText="10-30 min" />
-        <FilterButton buttonText="30-60 min" />
-        <FilterButton buttonText="1 hour+" />
+        {deliveryTimeText?.map((timeText) => (
+          <FilterButton key={timeText} buttonText={timeText} />
+        ))}
       </div>
     </div>
   );
 };
 
-const WebFilter = () => {
+const WebFilter = ({
+  foodCategoryText,
+  deliveryTimeText,
+  priceRangeText,
+}: FilterProps) => {
   return (
     <div className="shadow-[-4px_2px_10px_0px_rgba(0,_0,_0,_0.1), -16px_9px_18px_0px_rgba(0,_0,_0,_0.1)]/1 bg-white rounded-[10px] border-[0.6px] border-stroke p-6 flex flex-col gap-8 w-[239px] h-dvh">
       <H1Text>Filter</H1Text>
@@ -36,10 +45,9 @@ const WebFilter = () => {
       <div className="flex flex-col gap-4">
         <SubtitleText>food category</SubtitleText>
         <div className="flex flex-col gap-2.5">
-          <FilterButton buttonText="Hamburger" />
-          <FilterButton buttonText="Pizza" />
-          <FilterButton buttonText="Tacos" />
-          <FilterButton buttonText="Coffee" />
+          {foodCategoryText?.map((categoryText) => (
+            <FilterButton key={categoryText} buttonText={categoryText} />
+          ))}
         </div>
       </div>
 
@@ -47,29 +55,39 @@ const WebFilter = () => {
       <div className="flex flex-col gap-4">
         <SubtitleText>delivery time</SubtitleText>
         <div className="flex gap-2 flex-wrap">
-          <FilterButton buttonText="0-10 min" />
-          <FilterButton buttonText="10-30 min" />
-          <FilterButton buttonText="30-60 min" />
-          <FilterButton buttonText="1 hour+" />
+          {deliveryTimeText?.map((timeText) => (
+            <FilterButton key={timeText} buttonText={timeText} />
+          ))}
         </div>
       </div>
 
       {/* price range */}
       <div className="flex flex-col gap-4">
         <SubtitleText>price range</SubtitleText>
-        <div className="flex gap-2.5">
-          <FilterButton buttonText="$" />
-          <FilterButton buttonText="$$" />
-          <FilterButton buttonText="$$$" />
-          <FilterButton buttonText="$$$$" />
+        <div className="flex flex-wrap gap-2.5">
+          {priceRangeText?.map((priceText) => (
+            <FilterButton key={priceText} buttonText={priceText} />
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default function Filter() {
+export default function Filter({
+  deliveryTimeText,
+  priceRangeText,
+  foodCategoryText,
+}: FilterProps) {
   const isDesktop = useMediaQuery("(min-width: 787px)");
 
-  return isDesktop ? <WebFilter /> : <MobileFilter />;
+  return isDesktop ? (
+    <WebFilter
+      foodCategoryText={foodCategoryText}
+      deliveryTimeText={deliveryTimeText}
+      priceRangeText={priceRangeText}
+    />
+  ) : (
+    <MobileFilter deliveryTimeText={deliveryTimeText} />
+  );
 }
