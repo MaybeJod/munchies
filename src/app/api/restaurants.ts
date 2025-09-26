@@ -2,55 +2,37 @@ const BASE_URL = "https://work-test-web-2024-eze6j4scpq-lz.a.run.app/api";
 
 async function GetAllRestaurants() {
   const res = await fetch(`${BASE_URL}/restaurants`);
-
   const data = await res.json();
-
-  // console.log(data);
   return data.restaurants;
 }
 
 async function GetRestaurantById(id: string) {
   const res = await fetch(`${BASE_URL}/restaurants/${id}`);
-
   const data = await res.json();
-
-  // console.log(data);
   return data;
 }
 
 async function GetAllFilters() {
   const res = await fetch(`${BASE_URL}/filter`);
-
   const data = await res.json();
-
-  // console.log(data);
   return data.filters;
 }
 
 async function GetFilterById(id: string) {
   const res = await fetch(`${BASE_URL}/filter/${id}`);
-
   const data = await res.json();
-
-  // console.log(data);
   return data;
 }
 
 async function GetOpenStatusById(id: string) {
   const res = await fetch(`${BASE_URL}/open/${id}`);
-
   const data = await res.json();
-
-  // console.log(data);
   return data;
 }
 
 async function GetPriceRangeById(id: string) {
   const res = await fetch(`${BASE_URL}/price-range/${id}`);
-
   const data = await res.json();
-
-  // console.log(data);
   return data;
 }
 
@@ -90,8 +72,7 @@ async function MergedRestaurantData() {
   );
 
   // console.log(completeRestaurantData);
-
-  return completeRestaurantData;
+  return completeRestaurantData.filter((restaurant) => restaurant !== null);
 }
 
 interface FilterDataProps {
