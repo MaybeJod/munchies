@@ -40,8 +40,11 @@ export default function RestaurantCard({
           <div className="flex justify-between align-middle items-center">
             <H1Text>{name}</H1Text>
             {/* cta */}
-            <button className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px]">
-              <Arrow fill="#fff" />
+            <button
+              aria-label="Expand restaurant details"
+              className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px]"
+            >
+              <Arrow aria-hidden="true" fill="#fff" />
             </button>
           </div>
         </>
@@ -65,8 +68,11 @@ export default function RestaurantCard({
           <div className="flex justify-between align-middle">
             <H1Text className="opacity-20">{name}</H1Text>
             {/* cta */}
-            <button className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px] opacity-20">
-              <Arrow fill="#fff" />
+            <button
+              aria-label="Expand restaurant details"
+              className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px] opacity-20"
+            >
+              <Arrow aria-hidden="true" fill="#fff" />
             </button>
           </div>
           {/* closed text */}
