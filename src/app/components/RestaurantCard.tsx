@@ -68,7 +68,7 @@ export default function RestaurantCard({
                 quality={75}
                 fetchPriority="high"
                 alt="Illustration of food for the restaurant"
-                className="object-cover"
+                className="object-cover opacity-20"
                 priority={true}
               />
             </div>
@@ -76,7 +76,7 @@ export default function RestaurantCard({
 
           {/* footer */}
           <div className="flex justify-between align-middle">
-            <H1Text className="opacity-20">{name}</H1Text>
+            <H1Text className="opacity-55">{name}</H1Text>
             {/* cta */}
             <button
               disabled
