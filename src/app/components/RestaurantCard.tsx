@@ -28,17 +28,18 @@ export default function RestaurantCard({
               <Chip dot={true} isOpen={isOpen} text="Open" />
               <Chip dot={false} isOpen={true} text={`${DeliveryTime}`} />
             </div>
-            <Image
-              src={`${img}`}
-              width={140}
-              height={140}
-              sizes="140px"
-              quality={75}
-              fetchPriority="high"
-              alt="Illustration of food for the restaurant"
-              className="relative left-12 bottom-12"
-              priority={true}
-            />
+            <div className="relative left-12 bottom-12 w-36 h-36">
+              <Image
+                src={`${img}`}
+                fill
+                sizes="140px"
+                quality={75}
+                fetchPriority="high"
+                alt="Illustration of food for the restaurant"
+                className="object-cover"
+                priority={true}
+              />
+            </div>
           </div>
           {/* footer */}
           <div className="flex justify-between align-middle items-center">
@@ -59,13 +60,18 @@ export default function RestaurantCard({
             <div className="flex content-center gap-2">
               <Chip dot={true} isOpen={isOpen} text="Closed" />
             </div>
-            <Image
-              src={`${img}`}
-              width={140}
-              height={140}
-              alt="food"
-              className="relative left-12 bottom-12 opacity-20"
-            />
+            <div className="relative left-12 bottom-12 w-36 h-36">
+              <Image
+                src={`${img}`}
+                fill
+                sizes="140px"
+                quality={75}
+                fetchPriority="high"
+                alt="Illustration of food for the restaurant"
+                className="object-cover"
+                priority={true}
+              />
+            </div>
           </div>
 
           {/* footer */}
