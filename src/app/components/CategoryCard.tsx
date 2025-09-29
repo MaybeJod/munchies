@@ -25,17 +25,30 @@ export default function categoryCard({
     >
       <TitleText className="pt-4">{title}</TitleText>
 
-      <Image
+      <div className="relative left-2 overflow-hidden w-20 h-20">
+        <Image
+          src={`${img}`}
+          fill
+          alt={`Illustration of ${title} on filter card`}
+          loading="lazy"
+          quality={75}
+          className="object-cover"
+          sizes="80px"
+          priority={false}
+        />
+      </div>
+
+      {/* <Image
         src={`${img}`}
         width={80}
         height={80}
-        alt={`Illustation of ${title} on filter card`}
-        loading="lazy"
+        alt={`Illustration of ${title} on filter card`}
+        // loading="lazy"
         quality={75}
         className="relative left-2 overflow-hidden"
-        style={{ width: "80px", height: "auto" }}
-        priority={false}
-      />
+        sizes="80px"
+        priority={true}
+      /> */}
     </button>
   );
 }

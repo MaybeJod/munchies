@@ -11,7 +11,7 @@ export default function SubtitleText({
 }: SubtitleTextProps) {
   return (
     <h4
-      className={`text-subtitle uppercase opacity-40 font-semibold ${className}`}
+      className={`text-subtitle uppercase opacity-55 font-semibold ${className}`}
     >
       {children}
     </h4>

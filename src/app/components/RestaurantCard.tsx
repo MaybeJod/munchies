@@ -28,20 +28,28 @@ export default function RestaurantCard({
               <Chip dot={true} isOpen={isOpen} text="Open" />
               <Chip dot={false} isOpen={true} text={`${DeliveryTime}`} />
             </div>
-            <Image
-              src={`${img}`}
-              width={140}
-              height={140}
-              alt="food"
-              className="relative left-12 bottom-12"
-            />
+            <div className="relative left-12 bottom-12 w-36 h-36">
+              <Image
+                src={`${img}`}
+                fill
+                sizes="140px"
+                quality={75}
+                fetchPriority="high"
+                alt="Illustration of food for the restaurant"
+                className="object-cover"
+                priority={true}
+              />
+            </div>
           </div>
           {/* footer */}
           <div className="flex justify-between align-middle items-center">
             <H1Text>{name}</H1Text>
             {/* cta */}
-            <button className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px]">
-              <Arrow fill="#fff" />
+            <button
+              aria-label="Expand restaurant details"
+              className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px]"
+            >
+              <Arrow aria-hidden="true" fill="#fff" />
             </button>
           </div>
         </>
@@ -52,21 +60,30 @@ export default function RestaurantCard({
             <div className="flex content-center gap-2">
               <Chip dot={true} isOpen={isOpen} text="Closed" />
             </div>
-            <Image
-              src={`${img}`}
-              width={140}
-              height={140}
-              alt="food"
-              className="relative left-12 bottom-12 opacity-20"
-            />
+            <div className="relative left-12 bottom-12 w-36 h-36">
+              <Image
+                src={`${img}`}
+                fill
+                sizes="140px"
+                quality={75}
+                fetchPriority="high"
+                alt="Illustration of food for the restaurant"
+                className="object-cover"
+                priority={true}
+              />
+            </div>
           </div>
 
           {/* footer */}
           <div className="flex justify-between align-middle">
             <H1Text className="opacity-20">{name}</H1Text>
             {/* cta */}
-            <button className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px] opacity-20">
-              <Arrow fill="#fff" />
+            <button
+              disabled
+              aria-label="Expand restaurant details"
+              className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px] opacity-20"
+            >
+              <Arrow aria-hidden="true" fill="#fff" />
             </button>
           </div>
           {/* closed text */}
