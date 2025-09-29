@@ -79,6 +79,7 @@ export default function RestaurantCard({
             <H1Text className="opacity-20">{name}</H1Text>
             {/* cta */}
             <button
+              disabled
               aria-label="Expand restaurant details"
               className="bg-green min-w-8 min-h-8 grid content-center justify-items-center rounded-[88px] opacity-20"
             >
