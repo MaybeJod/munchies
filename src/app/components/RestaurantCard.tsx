@@ -32,8 +32,12 @@ export default function RestaurantCard({
               src={`${img}`}
               width={140}
               height={140}
-              alt="food"
+              sizes="140px"
+              quality={75}
+              fetchPriority="high"
+              alt="Illustration of food for the restaurant"
               className="relative left-12 bottom-12"
+              priority={true}
             />
           </div>
           {/* footer */}
