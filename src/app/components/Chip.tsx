@@ -16,7 +16,7 @@ export default function Chip({ text, isOpen, dot }: ChipProps) {
   }
 
   return (
-    <div className="inline-flex h-7 items-center rounded-[5rem] border-[0.0375rem] border-stroke py-2 px-3 gap-1">
+    <div className="inline-flex h-7 items-center rounded-[5rem] border-[0.0375rem] border-stroke py-2 px-3 gap-1 text-nowrap">
       {dot === true ? (
         <>
           <div className={`w-2 h-2 ${dotColor} rounded-full`}></div>
